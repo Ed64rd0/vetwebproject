@@ -49,6 +49,8 @@
 						<webModule>
 							<groupId>com.vet.maestria</groupId>
 							<artifactId>VetProjectWeb</artifactId>
+							<bundleFileName>VetProjectWeb.war</bundleFileName>
+							<contextRoot>VetProjectWeb</contextRoot>
 						</webModule>
 						<jarModule>
 							<groupId>com.vet.maestria</groupId>
