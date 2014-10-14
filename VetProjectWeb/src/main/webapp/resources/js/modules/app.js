@@ -1,4 +1,4 @@
-var vetApp = angular.module('vetApp', [ 'ngRoute', 'vetAppCtrl' ]);
+var vetApp = angular.module('vetApp', [ 'ngRoute', 'services', 'vetAppCtrl' ]);
 vetApp.config([ '$routeProvider', function($routeProvider) {
 	$routeProvider.when('/home', {
 		templateUrl : 'home',
