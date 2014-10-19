@@ -4,7 +4,7 @@
 
 	<groupId>com.vet.maestria</groupId>
 	<artifactId>VetProjectEAR</artifactId>
-	<version>0.0.0-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>ear</packaging>
 
 	<name>VetProjectEAR</name>
@@ -49,7 +49,7 @@
 						<webModule>
 							<groupId>com.vet.maestria</groupId>
 							<artifactId>VetProjectWeb</artifactId>
-							<bundleFileName>VetProjectWeb.war</bundleFileName>
+							<bundleFileName>VetProjectWeb-0.0.1-SNAPSHOT.war</bundleFileName>
 							<contextRoot>VetProjectWeb</contextRoot>
 						</webModule>
 						<jarModule>

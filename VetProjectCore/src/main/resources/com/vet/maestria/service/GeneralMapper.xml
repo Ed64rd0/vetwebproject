@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.vet.maestria.service.general.GeneralMapper">
+
+	<!-- GENDER -->
+		<resultMap id="genderMap" type="com.vet.maestria.domain.general.LabelValue">
+			<result column="GENDER_ID" property="value" />
+			<result column="GENDER_NAME" property="label" />
+		</resultMap>
+	
+		<select id="getGenders" resultMap="genderMap">
+			SELECT * FROM GENDER;
+		</select>
+	<!-- END GENDER -->
+
+	<!-- STATUS -->
+		<resultMap id="statusMap" type="com.vet.maestria.domain.general.LabelValue">
+			<result column="STATUS_ID" property="value" />
+			<result column="STATUS_NAME" property="label" />
+		</resultMap>
+	
+		<select id="getStatus" resultMap="statusMap">
+			SELECT * FROM STATUS_TAB;
+		</select>
+	<!-- END STATUS -->
+	
+	<!-- SPECIES -->
+		<resultMap id="speciesMap" type="com.vet.maestria.domain.general.LabelValue">
+			<result column="PET_TYPE_ID" property="value" />
+			<result column="SPECIES" property="label" />
+		</resultMap>
+	
+		<select id="getSpecies" resultMap="speciesMap">
+			SELECT * FROM PET_TYPE;
+		</select>
+	<!-- END SPECIES -->
+
+</mapper>

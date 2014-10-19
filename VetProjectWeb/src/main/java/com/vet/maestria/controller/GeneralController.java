@@ -1,11 +1,15 @@
 package com.vet.maestria.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.vet.maestria.domain.Response;
+import com.vet.maestria.domain.general.General;
+import com.vet.maestria.domain.vet.Response;
+import com.vet.maestria.domain.vet.ResponseType;
+import com.vet.maestria.service.general.IGeneralService;
 
 /**
  * This controller is used to retrieve all the data
@@ -16,8 +20,17 @@ import com.vet.maestria.domain.Response;
 @RequestMapping("/vet")
 public class GeneralController {
 
+	@Autowired
+	private IGeneralService generalService;
+
+	/**
+	 * In this method will retrieve all the options available
+	 * for some drop downs.
+	 * @return
+	 */
 	@RequestMapping(value="/general", method=RequestMethod.POST)
 	public @ResponseBody Response getGeneralOptions() {
-		return new Response();
+		General general = generalService.getGeneralOptions();
+		return new Response(general, ResponseType.SUCCESS);
 	}
 }

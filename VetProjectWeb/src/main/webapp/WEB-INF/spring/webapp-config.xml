@@ -27,21 +27,29 @@
 	<!-- END -->
 
 	<!-- DATA SOURCE CONFIGURATION -->
-<!-- 	<bean id="dataSource" -->
-<!-- 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
-<!-- 		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
-<!-- 		<property name="url" -->
-<!-- 			value="jdbc:mysql://localhost:3306/vet?autoReconnect=true" /> -->
-<!-- 		<property name="username" value="root" /> -->
-<!-- 		<property name="password" value="root" /> -->
-<!-- 	</bean> -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/vet?autoReconnect=true" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+	</bean>
 
-<!-- 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> -->
-<!-- 		<property name="dataSource" ref="dataSource" /> -->
-<!-- 		<property name="mapperLocations" -->
-<!-- 			value="classpath*:com/vet/maestria/persistence/**/*.xml" /> -->
-<!-- 	</bean> -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations"
+			value="classpath*:com/vet/maestria/service/**/*.xml" />
+	</bean>
 	
 	<!-- END -->
 
+	<!-- MAPPERS INJECTION -->
+	<bean id="generalMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.vet.maestria.service.general.GeneralMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<!-- SERVICES INJECTION -->
+	<bean id="generalService" class="com.vet.maestria.service.general.GeneralServiceImpl" />
 </beans>

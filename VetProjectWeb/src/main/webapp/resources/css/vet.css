@@ -1,0 +1,7 @@
+#head, #principal-menu {
+	margin-left : 35px;
+}
+#principal-menu {
+	width: 15%;
+	float: left;
+}

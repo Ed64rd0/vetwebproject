@@ -9,10 +9,87 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
   	<artifactId>VetProjectWeb</artifactId>
-	<packaging>war</packaging>
-	<name>VetProjectWeb Maven Webapp</name>
-	<url>http://maven.apache.org</url>
-	<build>
-		<finalName>VetProjectWeb</finalName>
-	</build>
+  	
+  	<properties>
+		<spring.version>3.2.2.RELEASE</spring.version>
+		<jackson.version>1.9.10</jackson.version>
+	</properties>
+  	
+  	<dependencies>
+  		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+  	
+  		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- Core/Persistence -->
+		<dependency>
+			<groupId>com.vet.maestria</groupId>
+			<artifactId>VetProjectCore</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<!-- VELOCITY -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
+  	</dependencies>
+  	<packaging>war</packaging>
 </project>

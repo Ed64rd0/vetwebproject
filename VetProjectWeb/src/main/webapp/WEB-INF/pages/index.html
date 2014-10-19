@@ -7,13 +7,15 @@
 	<!-- CSS libraries -->
 	
 		<link rel="stylesheet" href="resources/lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="resources/css/vet.css" />
 	
 	<!-- END -->
 	
 	<!-- JS libraries -->	
 		<script src="resources/lib/angular/angular.js"></script>
 		<script src="resources/lib/angular/angular-route.js"></script>
-	
+		<script src="resources/lib/angular/angular-resource.js"></script>
+		
 		<script src="resources/js/modules/app.js"></script>
 		<script src="resources/js/services/services.js"></script>
 		<script src="resources/js/controllers/VetAppCtrl.js"></script>
@@ -21,6 +23,11 @@
 </head>
 <body ng-controller="VetAppCtrl">
 
+	<nav class="navbar navbar-default">
+		<h1 id="head">Veterinaria</h1>
+	</nav>
+	
+	<div ng-view></div>
 	
 </body>
 </html>

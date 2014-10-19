@@ -3,7 +3,7 @@
   <display-name>VetProjectEAR</display-name>
   <module>
     <web>
-      <web-uri>VetProjectWeb.war</web-uri>
+      <web-uri>VetProjectWeb-0.0.1-SNAPSHOT.war</web-uri>
       <context-root>VetProjectWeb</context-root>
     </web>
   </module>
