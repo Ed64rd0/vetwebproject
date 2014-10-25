@@ -1,0 +1,45 @@
+<div ng-controller="CustomerCtrl">
+	
+	<h2 class="page-header">Customer</h2>
+	
+	<form ng-submit="saveCustomer()">
+		<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-1"><span>Nombre(s): </span></div>
+			<div class="col-md-4"><input type="text" class="form-control" ng-model="customer.name"  required="required" maxlength="30" /></div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-1"><span>Apellidos: </span></div>
+			<div class="col-md-4"><input type="text" class="form-control" required="required" ng-model="customer.lastName" maxlength="40" /></div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-1"><span>Tel: </span></div>
+			<div class="col-md-2"><input type="text" class="form-control" ng-model="customer.phone" maxlength="15" /></div>
+	
+			<div class="col-md-1"><span>Cel: </span></div>
+			<div class="col-md-2"><input type="text" class="form-control" ng-model="customer.cel" maxlength="15" /></div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-1"><span>Email: </span></div>
+			<div class="col-md-4"><input type="text" class="form-control" ng-model="customer.email" maxlength="50" /></div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-1"><span>Direccion: </span></div>
+			<div class="col-md-6"><input type="text" class="form-control"  ng-model="customer.address" maxlength="50" /></div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-1"><span>Colonia: </span></div>
+			<div class="col-md-6"><input type="text" class="form-control" ng-model="customer.colony" maxlength="50" /></div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-2"><input type="submit" value="Continuar" class="btn btn-primary" /></div>
+		</div>
+		</div>
+	</form>
+</div>

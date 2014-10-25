@@ -9,6 +9,4 @@ vetApp.controller('VetAppCtrl', ['$scope', 'GeneralVetService',
 		$scope.general = general;
 	});
 	
-	$scope.test2 = "HOLA";
-	
 }]);

@@ -6,8 +6,8 @@
 	
 	<!-- CSS libraries -->
 	
-		<link rel="stylesheet" href="resources/lib/bootstrap/css/bootstrap.css" />
 		<link rel="stylesheet" href="resources/css/vet.css" />
+		<link rel="stylesheet" href="resources/lib/bootstrap/css/bootstrap.css" />
 	
 	<!-- END -->
 	
@@ -19,6 +19,7 @@
 		<script src="resources/js/modules/app.js"></script>
 		<script src="resources/js/services/services.js"></script>
 		<script src="resources/js/controllers/VetAppCtrl.js"></script>
+		<script src="resources/js/controllers/CustomerCtrl.js"></script>
 	<!-- END -->
 </head>
 <body ng-controller="VetAppCtrl">
@@ -27,7 +28,7 @@
 		<h1 id="head">Veterinaria</h1>
 	</nav>
 	
-	<div ng-view></div>
+	<div ng-view id="content"></div>
 	
 </body>
 </html>

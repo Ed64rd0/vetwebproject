@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.vet.maestria.service.customer.CustomerMapper">
+
+	<update id="updateCustomer">
+		UPDATE CUSTOMER SET CSTMR_NAME=#{name},
+        				CSTMR_LAST_NAME=#{lastName},
+        				CSTMR_TEL=#{phone},
+        				CSTMR_CEL=#{cel},
+        				CSTMR_EMAIL=#{email},
+        				CSTMR_ADDR=#{address},
+        				CSTMR_COL=#{colony}
+        WHERE CSTMR_ID=#{id};
+	</update>
+	
+	<insert id="insertCustomer" useGeneratedKeys="true" keyColumn="CSTMR_ID" keyProperty="id">
+		INSERT INTO CUSTOMER (CSTMR_NAME, CSTMR_LAST_NAME, CSTMR_TEL, CSTMR_CEL, CSTMR_EMAIL, CSTMR_ADDR, CSTMR_COL)
+        VALUES (#{name}, #{lastName}, #{phone}, #{cel}, #{email}, #{address}, #{colony});
+	</insert>
+
+	<resultMap id="customerMap" type="com.vet.maestria.domain.customer.Customer">
+		<result property="id" column="CSTMR_ID" />
+		<result property="name" column="CSTMR_NAME" />
+		<result property="lastName" column="CSTMR_LAST_NAME" />
+		<result property="phone" column="CSTMR_TEL" />
+		<result property="cel" column="CSTMR_CEL" />
+		<result property="email" column="CSTMR_EMAIL" />
+		<result property="address" column="CSTMR_ADDR" />
+		<result property="colony" column="CSTMR_COL"/>
+	</resultMap>
+
+	<select id="getCustomer" resultMap="customerMap">
+		SELECT * FROM CUSTOMER
+		WHERE CSTMR_ID = #{id}
+	</select>
+</mapper>

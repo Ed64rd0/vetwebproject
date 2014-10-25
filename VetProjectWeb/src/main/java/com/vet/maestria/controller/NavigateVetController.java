@@ -29,4 +29,13 @@ public class NavigateVetController {
 	public String getApplicationHome() {
 		return "vet/home";
 	}
+
+	/**
+	 * Rest service used to open the customer page.
+	 * @return
+	 */
+	@RequestMapping(value="/customer", method=RequestMethod.GET)
+	public String getCustomer() {
+		return "vet/customer";
+	}
 }

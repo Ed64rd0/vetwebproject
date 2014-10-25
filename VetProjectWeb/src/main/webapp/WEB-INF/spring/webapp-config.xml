@@ -49,7 +49,14 @@
 		<property name="mapperInterface" value="com.vet.maestria.service.general.GeneralMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
+
+	<bean id="customerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.vet.maestria.service.customer.CustomerMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
 	
 	<!-- SERVICES INJECTION -->
 	<bean id="generalService" class="com.vet.maestria.service.general.GeneralServiceImpl" />
+	
+	<bean id="customerService" class="com.vet.maestria.service.customer.CustomerServiceImpl" />
 </beans>
