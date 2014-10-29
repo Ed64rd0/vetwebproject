@@ -8,7 +8,6 @@ import com.vet.maestria.domain.general.General;
 /**
  * This class represents the service layer for General where
  * each list will get it values.
- * @author Edgardo Rosales
  *
  */
 public class GeneralServiceImpl implements IGeneralService {

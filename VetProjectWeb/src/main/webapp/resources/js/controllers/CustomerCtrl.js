@@ -7,7 +7,7 @@ customerCtrl.controller('CustomerCtrl', ['$scope', '$location', 'CustomerService
   		var customer = $scope.customer;
   		CustomerService.saveCustomer(customer, function (application) {
   			if (application === 'SUCCESS') {
-  				$location.path('/');
+  				$location.path('/pet');
   			}
   		});
   	}

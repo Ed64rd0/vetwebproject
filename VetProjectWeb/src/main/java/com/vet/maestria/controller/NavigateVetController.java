@@ -38,4 +38,13 @@ public class NavigateVetController {
 	public String getCustomer() {
 		return "vet/customer";
 	}
+
+	/**
+	 * Rest service used to open the pet page.
+	 * @return
+	 */
+	@RequestMapping(value="/pet", method=RequestMethod.GET)
+	public String getPet() {
+		return "vet/pet";
+	}
 }

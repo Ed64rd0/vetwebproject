@@ -7,7 +7,6 @@ import com.vet.maestria.domain.general.LabelValue;
 /**
  * Interface which contains each method used
  * to make a transaction with general values.
- * @author Edgardo Rosales
  *
  */
 public interface GeneralMapper {

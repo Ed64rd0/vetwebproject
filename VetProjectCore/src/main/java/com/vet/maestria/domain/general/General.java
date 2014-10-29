@@ -2,6 +2,10 @@ package com.vet.maestria.domain.general;
 
 import java.util.List;
 
+/**
+ * Class used to general purpose.
+ *
+ */
 public class General {
 
 	private List<LabelValue> genders;
