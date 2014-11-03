@@ -26,14 +26,28 @@
 	<!-- END STATUS -->
 	
 	<!-- SPECIES -->
-		<resultMap id="speciesMap" type="com.vet.maestria.domain.general.LabelValue">
-			<result column="PET_TYPE_ID" property="value" />
-			<result column="SPECIES" property="label" />
+		<resultMap id="speciesMap" type="com.vet.maestria.domain.general.Species">
+			<result column="PET_TYPE_ID" property="specieId" />
+			<result column="SPECIES" property="specieName" />
 		</resultMap>
 	
 		<select id="getSpecies" resultMap="speciesMap">
 			SELECT * FROM PET_TYPE;
 		</select>
 	<!-- END SPECIES -->
+	
+	<!-- RACE -->
+		<resultMap id="raceMap" type="com.vet.maestria.domain.general.LabelValue">
+			<result column="RACE_ID" property="value" />
+			<result column="RACE_NAME" property="label" />
+		</resultMap>
+		
+		<select id="getRaces" resultMap="raceMap">
+			SELECT r.RACE_ID, r.RACE_NAME 
+			FROM RACE r,
+			PET_TYPE_RACE t
+			WHERE t.RACE_ID = r.RACE_ID
+			AND t.PET_TYPE_ID = #{speciesId}
+		</select>
 
 </mapper>

@@ -1,9 +1,13 @@
 package com.vet.maestria.service.general;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.vet.maestria.domain.general.General;
+import com.vet.maestria.domain.general.LabelValue;
+import com.vet.maestria.domain.general.Species;
 
 /**
  * This class represents the service layer for General where
@@ -24,8 +28,22 @@ public class GeneralServiceImpl implements IGeneralService {
 		General general = new General();
 		general.setGenders(generalMapper.getGenders());
 		general.setSpecies(generalMapper.getSpecies());
-		general.setStatus(generalMapper.getStatus());
+		if (general.getSpecies() != null) {
+			for(Species species: general.getSpecies()) {
+				species.setRaces(getRaces(species.getSpecieId()));
+			}
+		}
 		return general;
 	}
-	
+
+	/**
+	 * Method used to retrieve all the races
+	 * available for a specific species. 
+	 * @param speciesId
+	 * @return
+	 */
+	private List<LabelValue> getRaces(int speciesId) {
+		List<LabelValue> races = generalMapper.getRaces(speciesId);
+		return races;
+	}
 }

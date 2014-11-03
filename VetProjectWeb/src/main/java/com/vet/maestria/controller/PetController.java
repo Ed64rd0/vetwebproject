@@ -21,15 +21,6 @@ public class PetController {
 
 	@Autowired
 	IPetService petService;
-	/**
-	 * Controller used to retrieve all the
-	 * species of pets.
-	 * @return
-	 */
-	@RequestMapping(value="/getTypes", method=RequestMethod.GET)
-	public @ResponseBody Response getTypes() {
-		return new Response();
-	}
 
 	/**
 	 * Controller used to retrieve all the

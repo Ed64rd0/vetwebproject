@@ -6,10 +6,11 @@ customerCtrl.controller('CustomerCtrl', ['$scope', '$location', 'CustomerService
   	$scope.saveCustomer = function() {
   		var customer = $scope.customer;
   		CustomerService.saveCustomer(customer, function (application) {
-  			if (application === 'SUCCESS') {
+  			if (application.responseType === 'SUCCESS') {
   				$location.path('/pet');
   			}
   		});
   	}
   }
+
 ]);

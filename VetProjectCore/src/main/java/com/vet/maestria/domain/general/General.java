@@ -9,8 +9,7 @@ import java.util.List;
 public class General {
 
 	private List<LabelValue> genders;
-	private List<LabelValue> species;
-	private List<LabelValue> status;
+	private List<Species> species;
 
 	public List<LabelValue> getGenders() {
 		return genders;
@@ -20,20 +19,12 @@ public class General {
 		this.genders = genders;
 	}
 
-	public List<LabelValue> getSpecies() {
+	public List<Species> getSpecies() {
 		return species;
 	}
 
-	public void setSpecies(List<LabelValue> species) {
+	public void setSpecies(List<Species> species) {
 		this.species = species;
-	}
-
-	public List<LabelValue> getStatus() {
-		return status;
-	}
-
-	public void setStatus(List<LabelValue> status) {
-		this.status = status;
 	}
 
 }
