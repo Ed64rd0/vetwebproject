@@ -3,4 +3,46 @@
 
 <mapper namespace="com.vet.maestria.service.pet.PetMapper">
 
+	<insert id="insertPet" useGeneratedKeys="true" keyColumn="PET_ID" keyProperty="petId">
+		INSERT INTO PET (PET_TYPE_ID, PET_NAME, GENDER_ID, RACE_ID)
+		VALUES (#{speciesId}, #{petName}, #{genderId}), #{raceId});
+	</insert>
+
+	<update id="updatePet">
+		UPDATE PET SET 	PET_TYPE_ID = #{speciesId}, PET_NAME = #{petName},
+						GENDER_ID = #{genderId}, RACE_ID = #{raceId}
+		WHERE PET_ID = #{petId}		
+	</update>
+
+	<resultMap id="petMap" type="com.vet.maestria.domain.pet.Pet">
+		<result column="petId" property="petId" />
+		<result column="speciesId" property="speciesId" />
+		<result column="petName" property="petName" />
+		<result column="genderId" property="genderId" />
+		<result column="raceId" property="raceId" />
+	</resultMap>
+
+	<select id="getPet" resultMap="petMap">
+		SELECT 	PET_ID AS petId, 
+				PET_TYPE_ID AS speciesId,
+				PET_NAME AS petName,
+				GENDER_ID AS genderId,
+				RACE_ID as raceId
+		FROM 	PET
+		WHERE PET_ID = #{petId}
+	</select>
+
+	<select id="getPets" resultMap="petMap">
+		SELECT 	PET_ID AS petId, 
+				PET_TYPE_ID AS speciesId,
+				PET_NAME AS petName,
+				GENDER_ID AS genderId,
+				RACE_ID as raceId
+		FROM 	PET
+	</select>
+
+	<insert id="insertPetCustomer">
+		INSERT INTO CUSTOMER_PET (PET_ID, CUSTOMER_ID)
+		VALUES (#{petId}, #{customerId});
+	</insert>
 </mapper>
