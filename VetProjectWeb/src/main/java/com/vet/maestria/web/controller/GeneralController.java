@@ -1,4 +1,4 @@
-package com.vet.maestria.controller;
+package com.vet.maestria.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.vet.maestria.domain.general.General;
-import com.vet.maestria.domain.vet.Response;
-import com.vet.maestria.domain.vet.ResponseType;
 import com.vet.maestria.service.general.IGeneralService;
+import com.vet.maestria.web.domain.vet.Response;
+import com.vet.maestria.web.domain.vet.ResponseType;
 
 /**
  * This controller is used to retrieve all the data

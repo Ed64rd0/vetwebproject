@@ -14,11 +14,11 @@ services.factory('CustomerService', ['$resource', function($resource) {
 
 services.factory('PetService', ['$resource', function($resource) {
 	return {
-		save : $resource('pet/save', {}, {
+		save : $resource('pet/savePet', {}, {
 			save: {method: 'POST', params: {}, isArray: false}
 		}),
-		getRaces : $resource('pet/getRaces/:typeId', {typeId: '@id'}, {
-			getRaces: {method: 'GET', params: {}, isArray: false}
+		getPets : $resource('pet/getPets/:customerId', {customerId: '@customerId'}, {
+			getPets: {method: 'GET', params: {}, isArray: false}
 		})
 	};
 }]);

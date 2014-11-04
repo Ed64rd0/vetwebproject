@@ -1,4 +1,4 @@
-package com.vet.maestria.controller;
+package com.vet.maestria.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

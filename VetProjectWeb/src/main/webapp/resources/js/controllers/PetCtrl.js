@@ -3,14 +3,13 @@ var petCtrl = angular.module('petCtrl', []);
 petCtrl.controller('PetCtrl', ['$scope', '$location', 'PetService',
 		function($scope, $location, PetService) {
 	
-	$scope.pet = {'specieId' : 2};
-	
 	$scope.savePet = function() {
-		$scope.testing = 1;
-		alert($pet.name);
+		PetService.savePet($scope.pet, function(application) {
+			$location.path("/service");
+		});
 	};
-	
-	$scope.test = function(typeId) {
+
+	$scope.changeAnimalType = function(typeId) {
 		angular.forEach($scope.species, function(type) {
 			if (type.specieId === typeId) {
 				$scope.races = type.races;

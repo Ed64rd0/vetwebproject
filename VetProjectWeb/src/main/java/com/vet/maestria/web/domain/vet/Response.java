@@ -1,4 +1,4 @@
-package com.vet.maestria.domain.vet;
+package com.vet.maestria.web.domain.vet;
 
 public class Response {
 	

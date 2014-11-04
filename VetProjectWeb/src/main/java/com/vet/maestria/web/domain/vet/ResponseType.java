@@ -1,4 +1,4 @@
-package com.vet.maestria.domain.vet;
+package com.vet.maestria.web.domain.vet;
 
 /**
  * This Enum contains the two types response.
