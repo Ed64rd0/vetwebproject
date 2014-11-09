@@ -1,6 +1,8 @@
 package com.vet.maestria.service.general;
 
-import com.vet.maestria.domain.general.General;
+import java.util.List;
+
+import com.vet.maestria.domain.pet.Pet;
 
 /**
  * Interface used to represent the service layer
@@ -9,6 +11,6 @@ import com.vet.maestria.domain.general.General;
  */
 public interface IGeneralService {
 
-	public General getGeneralOptions();
+	public List<Pet> initializePetArray();
 
 }

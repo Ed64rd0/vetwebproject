@@ -1,4 +1,4 @@
-package com.vet.maestria.web.controller;
+package com.vet.maestria.vet.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,14 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.vet.maestria.domain.general.General;
+import com.vet.maestria.domain.customer.Customer;
 import com.vet.maestria.service.general.IGeneralService;
-import com.vet.maestria.web.domain.vet.Response;
-import com.vet.maestria.web.domain.vet.ResponseType;
+import com.vet.maestria.vet.web.domain.Vet;
 
 /**
  * This controller is used to retrieve all the data
- * available in the drop downs.
+ * to create a service record.
  *
  */
 @Controller
@@ -24,13 +23,14 @@ public class GeneralController {
 	private IGeneralService generalService;
 
 	/**
-	 * In this method will retrieve all the options available
-	 * for some drop downs.
+	 * Method to get the basic information to start a new service.
 	 * @return
 	 */
 	@RequestMapping(value="/general", method=RequestMethod.POST)
-	public @ResponseBody Response getGeneralOptions() {
-		General general = generalService.getGeneralOptions();
-		return new Response(general, ResponseType.SUCCESS);
+	public @ResponseBody Vet initializeApp() {
+		Vet vet = new Vet();
+		vet.setCustomer(new Customer());
+		vet.setPets(generalService.initializePetArray());
+		return vet;
 	}
 }

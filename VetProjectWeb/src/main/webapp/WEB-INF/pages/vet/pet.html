@@ -3,51 +3,67 @@
 	<h2 class="page-header">Mascota</h2>
 
 	<form ng-submit="savePet()">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-1">
-					<span>Nombre de la mascota: </span>
+		<div ng-repeat="pet in pets">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-1">
+						<span>Nombre de la mascota: </span>
+					</div>
+					<div class="col-md-4">
+						<input type="text" class="form-control" ng-model="pet.name"
+							required="required" maxlength="30" />
+					</div>
 				</div>
-				<div class="col-md-4">
-					<input type="text" class="form-control" ng-model="pet.name"
-						required="required" maxlength="30" />
+				<br>
+				<div class="row">
+					<div class="col-md-1">
+						<span>Tipo de Mascota: </span>
+					</div>
+					<div class="col-md-4">
+						<select class="form-control" ng-model="pet.specieId" 
+							ng-options="specie.specieId as specie.specieName for specie in pet.species"
+							ng-change="changeAnimalType(pet.species, pet.specieId)">
+						</select>
+					</div>
 				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-md-1">
-					<span>Tipo de Mascota: </span>
+				<br>
+				<div class="row">
+					<div class="col-md-1">
+						<span>Raza: </span>
+					</div>
+					<div class="col-md-4">
+						<select class="form-control" ng-model="pet.raceId"
+							ng-options="race.value as race.label for race in races">
+						</select>
+					</div>
 				</div>
-				<div class="col-md-4">
-					<select class="form-control" ng-model="pet.specieId" 
-						ng-options="specie.specieId as specie.specieName for specie in species" ng-change="changeAnimalType(pet.specieId)">
-					</select>
+				<br>
+				<div class="row">
+					<div class="col-md-1">
+						<span>Sexo: </span>
+					</div>
+					<div class="col-md-4">
+						<select class="form-control" ng-model="pet.genderId" 
+							ng-options="gender.value as gender.label for gender in pet.genders">
+						</select>
+					</div>
 				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-md-1">
-					<span>Raza: </span>
+				<br>
+				<h3>Servicio</h3>
+				<div class="row">
+					<div class="col-md-1">
+						<span>Servicio: </span>
+					</div>
+					<div class="col-md-4">
+						<select class="form-control" ng-model="serviceId" 
+							ng-options="service.serviceId as service.serviceName for service in pet.services">
+						</select>
+					</div>
 				</div>
-				<div class="col-md-4">
-					<select class="form-control" ng-model="pet.raceId" ng-options="race.value as race.label for race in races">
-					</select>
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-md-1">
-					<span>Sexo: </span>
-				</div>
-				<div class="col-md-4">
-					<select class="form-control" ng-model="pet.genderId" ng-options="gender.value as gender.label for gender in genders" ng-change="test(pet.specieId)">
-					</select>
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<div class="col-md-2">
-					<input type="submit" value="Continuar" class="btn btn-primary" />
+				<div class="row">
+					<div class="col-md-2">
+						<input type="submit" value="Continuar" class="btn btn-primary" />
+					</div>
 				</div>
 			</div>
 		</div>

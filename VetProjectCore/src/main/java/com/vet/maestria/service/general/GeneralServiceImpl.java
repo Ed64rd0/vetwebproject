@@ -1,13 +1,12 @@
 package com.vet.maestria.service.general;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.vet.maestria.domain.general.General;
-import com.vet.maestria.domain.general.LabelValue;
-import com.vet.maestria.domain.general.Species;
+import com.vet.maestria.domain.pet.Pet;
 
 /**
  * This class represents the service layer for General where
@@ -21,29 +20,25 @@ public class GeneralServiceImpl implements IGeneralService {
 
 	/**
 	 * Method used to fill each list that will be
-	 * use for the drop down options.
+	 * use to complete the basic information of each pet.
 	 */
 	@Transactional
-	public General getGeneralOptions() {
-		General general = new General();
-		general.setGenders(generalMapper.getGenders());
-		general.setSpecies(generalMapper.getSpecies());
-		if (general.getSpecies() != null) {
-			for(Species species: general.getSpecies()) {
-				species.setRaces(getRaces(species.getSpecieId()));
-			}
-		}
-		return general;
+	private Pet getPetInformation() {
+		Pet pet = new Pet();
+		pet.setGenders(generalMapper.getGenders());
+		pet.setSpecies(generalMapper.getSpecies());
+		pet.setServices(generalMapper.getServices());
+		return pet;
 	}
 
 	/**
-	 * Method used to retrieve all the races
-	 * available for a specific species. 
-	 * @param speciesId
-	 * @return
+	 * Method to initialize the Pet array
+	 * and can display the first form for a pet.
 	 */
-	private List<LabelValue> getRaces(int speciesId) {
-		List<LabelValue> races = generalMapper.getRaces(speciesId);
-		return races;
+	@Override
+	public List<Pet> initializePetArray() {
+		List<Pet> pets = new ArrayList<Pet>();
+		pets.add(getPetInformation());
+		return pets;
 	}
 }

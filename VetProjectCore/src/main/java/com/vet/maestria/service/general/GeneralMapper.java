@@ -2,10 +2,9 @@ package com.vet.maestria.service.general;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
 import com.vet.maestria.domain.general.LabelValue;
 import com.vet.maestria.domain.general.Species;
+import com.vet.maestria.domain.service.Service;
 
 /**
  * Interface which contains each method used
@@ -28,12 +27,6 @@ public interface GeneralMapper {
 	 */
 	List<Species> getSpecies();
 
-	/**
-	 * Method used to retrieve all the races
-	 * available for an animal type.
-	 * @param speciesId
-	 * @return
-	 */
-	List<LabelValue> getRaces(@Param("speciesId") int speciesId);
+	List<Service> getServices();
 
 }

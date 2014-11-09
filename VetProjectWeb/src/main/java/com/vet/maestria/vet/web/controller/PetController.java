@@ -1,15 +1,10 @@
-package com.vet.maestria.web.controller;
+package com.vet.maestria.vet.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.vet.maestria.domain.pet.Pet;
 import com.vet.maestria.service.pet.IPetService;
-import com.vet.maestria.web.domain.vet.Response;
 
 /**
  * Controller used to manage all
@@ -29,9 +24,15 @@ public class PetController {
 	 * @param typeId
 	 * @return
 	 */
-	@RequestMapping(value="/save", method=RequestMethod.POST)
-	public @ResponseBody Response getTypes(@RequestBody Pet pet) {
-		petService.savePet(pet);
-		return new Response();
-	}
+//	@RequestMapping(value="/save", method=RequestMethod.POST)
+//	public @ResponseBody  savePet(@RequestBody Pet pet) {
+//		petService.savePet(pet);
+//		return new Response();
+//	}
+//
+//	@RequestMapping(value="/getPets/{customerId}", method=RequestMethod.GET)
+//	public @ResponseBody Response getPets(@PathVariable int customerId) {
+//		List<Pet> pets = petService.getPets(customerId);
+//		return new Response();
+//	}
 }

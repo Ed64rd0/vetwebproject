@@ -27,12 +27,15 @@
 	
 	<!-- SPECIES -->
 		<resultMap id="speciesMap" type="com.vet.maestria.domain.general.Species">
-			<result column="PET_TYPE_ID" property="specieId" />
-			<result column="SPECIES" property="specieName" />
+			<result column="specieId" property="specieId" />
+			<result column="specieName" property="specieName" />
+			<collection column="specieId" property="races" select="getRaces" />
 		</resultMap>
 	
 		<select id="getSpecies" resultMap="speciesMap">
-			SELECT * FROM PET_TYPE;
+			SELECT 	PET_TYPE_ID as specieId,
+					SPECIES as specieName
+			FROM PET_TYPE;
 		</select>
 	<!-- END SPECIES -->
 	
@@ -49,5 +52,23 @@
 			WHERE t.RACE_ID = r.RACE_ID
 			AND t.PET_TYPE_ID = #{speciesId}
 		</select>
+	
+	<!-- END RACE -->
 
+	<!-- SERVICES -->
+		<resultMap id="serviceMap" type="com.vet.maestria.domain.service.Service">
+			<result column="serviceId" property="serviceId" />
+			<result column="serviceName" property="serviceName" />
+			<result column="description" property="description" />
+			<result column="price" property="price" />
+		</resultMap>
+		
+		<select id="getServices" resultMap="serviceMap">
+			SELECT 	SERVICE_ID as serviceId,
+					SERVICE_NAME as serviceName,
+					SERVICE_DESC as description,
+					SERVICE_PRICE as price
+			FROM SERVICE
+		</select>
+	<!-- END SERVICES -->
 </mapper>

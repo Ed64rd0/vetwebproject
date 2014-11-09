@@ -3,14 +3,12 @@ var vetApp = angular.module('vetAppCtrl', []);
 vetApp.controller('VetAppCtrl', ['$scope', 'GeneralVetService',
   function($scope, GeneralVetService) {
 	
-	$scope.genders;
-	$scope.species;
+	$scope.customer;
+	$scope.pets;
 
 	GeneralVetService.getOptions().$promise.then(function (application) {
-		if (application.responseType === 'SUCCESS') {
-			$scope.genders = application.object.genders;
-			$scope.species = application.object.species;
-		}
+		$scope.customer = application.customer;
+		$scope.pets = application.pets;
 	});
 	
 }]);
