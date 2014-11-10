@@ -35,10 +35,13 @@ public class GeneralServiceImpl implements IGeneralService {
 	 * Method to initialize the Pet array
 	 * and can display the first form for a pet.
 	 */
-	@Override
 	public List<Pet> initializePetArray() {
 		List<Pet> pets = new ArrayList<Pet>();
 		pets.add(getPetInformation());
 		return pets;
+	}
+
+	public void setGeneralMapper(GeneralMapper generalMapper) {
+		this.generalMapper = generalMapper;
 	}
 }

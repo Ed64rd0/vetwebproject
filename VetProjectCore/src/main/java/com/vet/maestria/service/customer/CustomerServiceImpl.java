@@ -1,6 +1,7 @@
 package com.vet.maestria.service.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.vet.maestria.domain.customer.Customer;
 
@@ -18,14 +19,17 @@ public class CustomerServiceImpl implements ICustomerService {
 	/**
 	 * @see ICustomerService
 	 */
-	@Override
+	@Transactional
 	public void saveCustomer(Customer customer) {
 		if (customerMapper.getCustomer(customer.getId())  == null) {
 			customerMapper.insertCustomer(customer);
-			System.out.println(customer.getId());
 		} else {
 			customerMapper.updateCustomer(customer);
 		}
+	}
+
+	public void setCustomerMapper(CustomerMapper customerMapper) {
+		this.customerMapper = customerMapper;
 	}
 
 }
