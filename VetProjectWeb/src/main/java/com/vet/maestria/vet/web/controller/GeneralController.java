@@ -9,24 +9,26 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.vet.maestria.domain.customer.Customer;
 import com.vet.maestria.service.general.IGeneralService;
 import com.vet.maestria.vet.web.domain.Vet;
+import com.vet.maestria.vet.web.util.WebConstants;
 
 /**
- * This controller is used to retrieve all the data
- * to create a service record.
+ * Controller used to retrieve/initialize all the data
+ * to create a new service.
  *
  */
 @Controller
-@RequestMapping("/vet")
+@RequestMapping(WebConstants.VET)
 public class GeneralController {
 
 	@Autowired
 	private IGeneralService generalService;
 
 	/**
-	 * Method to get the basic information to start a new service.
+	 * Method to get the basic information that will be displayed
+	 * in the UI.
 	 * @return
 	 */
-	@RequestMapping(value="/general", method=RequestMethod.POST)
+	@RequestMapping(value=WebConstants.GENERAL, method=RequestMethod.POST)
 	public @ResponseBody Vet initializeApp() {
 		Vet vet = new Vet();
 		vet.setCustomer(new Customer());
