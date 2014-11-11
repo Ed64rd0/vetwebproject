@@ -23,7 +23,7 @@ public interface CustomerMapper {
 
 	/**
 	 * Method used to retrieve all customer info
-	 * for a specific id.
+	 * for a specific customer.
 	 * @param id
 	 * @return
 	 */

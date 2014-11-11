@@ -27,6 +27,11 @@ public interface GeneralMapper {
 	 */
 	List<Species> getSpecies();
 
+	/**
+	 * Retrieve all the services available
+	 * in the vet.
+	 * @return
+	 */
 	List<Service> getServices();
 
 }

@@ -11,6 +11,10 @@ import com.vet.maestria.domain.pet.Pet;
  */
 public interface IGeneralService {
 
+	/**
+	 * Method to initialize the Pet array
+	 * and can display the first form for a pet.
+	 */
 	public List<Pet> initializePetArray();
 
 }

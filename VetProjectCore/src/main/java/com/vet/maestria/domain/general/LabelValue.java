@@ -1,8 +1,8 @@
 package com.vet.maestria.domain.general;
 
 /**
- * This class will be use to represent the domain tables.
- * @author Edgardo Rosales
+ * This class will be use to 
+ * represent the domain tables.
  *
  */
 public class LabelValue {

@@ -21,7 +21,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	 */
 	@Transactional
 	public void saveCustomer(Customer customer) {
-		if (customerMapper.getCustomer(customer.getId())  == null) {
+		if (customerMapper.getCustomer(customer.getId()) == null) {
 			customerMapper.insertCustomer(customer);
 		} else {
 			customerMapper.updateCustomer(customer);

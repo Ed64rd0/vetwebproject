@@ -1,5 +1,10 @@
 package com.vet.maestria.domain.service;
 
+/**
+ * Class used to represent each service
+ * available in the vet.
+ *
+ */
 public class Service {
 
 	private int serviceId;

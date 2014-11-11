@@ -32,8 +32,7 @@ public class GeneralServiceImpl implements IGeneralService {
 	}
 
 	/**
-	 * Method to initialize the Pet array
-	 * and can display the first form for a pet.
+	 * @see IGeneralService
 	 */
 	public List<Pet> initializePetArray() {
 		List<Pet> pets = new ArrayList<Pet>();
