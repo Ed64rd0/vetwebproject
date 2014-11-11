@@ -1,5 +1,9 @@
 package com.vet.maestria.service.general;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,11 +14,12 @@ import org.mockito.MockitoAnnotations;
 
 import com.vet.maestria.domain.general.LabelValue;
 import com.vet.maestria.domain.general.Species;
+import com.vet.maestria.domain.pet.Pet;
 import com.vet.maestria.domain.service.Service;
 
 public class GeneralServiceImplTest {
 
-	GeneralServiceImpl generalService;
+	GeneralServiceImpl generalService = new GeneralServiceImpl();
 
 	@Mock
 	GeneralMapper generalMapper;
@@ -32,9 +37,11 @@ public class GeneralServiceImplTest {
 		MockitoAnnotations.initMocks(this);
 		generalService.setGeneralMapper(generalMapper);
 		genders = getGenders();
+		species = getSpecies();
+		services = getServices();
 	}
 
-	public List<LabelValue> getGenders() {
+	private List<LabelValue> getGenders() {
 		List<LabelValue> genders = new ArrayList<LabelValue>();
 		LabelValue gender1 = new LabelValue();
 		gender1.setLabel("MALE");
@@ -49,7 +56,7 @@ public class GeneralServiceImplTest {
 		return genders;
 	}
 
-	public List<Species> getSpecies() {
+	private List<Species> getSpecies() {
 		List<Species> species = new ArrayList<Species>();
 		Species specie1 = new Species();
 		specie1.setSpecieName("CAT");
@@ -66,7 +73,7 @@ public class GeneralServiceImplTest {
 		return species;
 	}
 
-	public List<LabelValue> getCats() {
+	private List<LabelValue> getCats() {
 		List<LabelValue> cats = new ArrayList<LabelValue>();
 		LabelValue cat1 = new LabelValue();
 		cat1.setLabel("SIAMES");
@@ -81,7 +88,7 @@ public class GeneralServiceImplTest {
 		return cats;
 	}
 
-	public List<LabelValue> getDogs() {
+	private List<LabelValue> getDogs() {
 		List<LabelValue> dogs = new ArrayList<LabelValue>();
 		LabelValue dog1 = new LabelValue();
 		dog1.setLabel("LABRADOR");
@@ -96,8 +103,38 @@ public class GeneralServiceImplTest {
 		return dogs;
 	}
 
+	private List<Service> getServices() {
+		List<Service> services = new ArrayList<Service>();
+		Service service1 = new Service();
+		service1.setServiceId(1);
+		service1.setServiceName("Baño");
+		service1.setPrice(75.8);
+
+		Service service2 = new Service();
+		service2.setServiceId(2);
+		service2.setServiceName("corte");
+		service2.setPrice(100);
+
+		services.add(service1);
+		services.add(service2);
+		return services;
+	}
+
 	@Test
 	public void testInitializePetArray() {
-		
+		when(generalMapper.getGenders()).thenReturn(genders);
+		when(generalMapper.getSpecies()).thenReturn(species);
+		when(generalMapper.getServices()).thenReturn(services);
+
+		List<Pet> pets = generalService.initializePetArray();
+
+		assertEquals(1, pets.size());
+		assertEquals(2, pets.get(0).getGenders().size());
+		assertEquals(2, pets.get(0).getServices().size());
+		assertEquals(2, pets.get(0).getSpecies().size());
+
+		verify(generalMapper).getGenders();
+		verify(generalMapper).getServices();
+		verify(generalMapper).getSpecies();
 	}
 }
