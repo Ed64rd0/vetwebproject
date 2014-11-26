@@ -1,8 +1,8 @@
 package com.vet.maestria.domain.customer;
 
 /**
- * Class used to represent all the customer
- * information.
+ * Class used to represent
+ * customer object.
  *
  */
 public class Customer {

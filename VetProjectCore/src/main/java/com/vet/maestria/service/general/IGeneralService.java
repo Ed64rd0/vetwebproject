@@ -1,7 +1,5 @@
 package com.vet.maestria.service.general;
 
-import java.util.List;
-
 import com.vet.maestria.domain.pet.Pet;
 
 /**
@@ -12,9 +10,10 @@ import com.vet.maestria.domain.pet.Pet;
 public interface IGeneralService {
 
 	/**
-	 * Method to initialize the Pet array
-	 * and can display the first form for a pet.
+	 * Method to get a Pet object
+	 * with the standard data.
+	 * @return
 	 */
-	public List<Pet> initializePetArray();
+	public Pet getPetInformation();
 
 }

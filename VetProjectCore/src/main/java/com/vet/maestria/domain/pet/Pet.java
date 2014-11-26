@@ -7,8 +7,8 @@ import com.vet.maestria.domain.general.Species;
 import com.vet.maestria.domain.service.Service;
 
 /**
- * Class used to represent a pet
- * with the data related.
+ * Class used to represent
+ * a pet object.
  *
  */
 public class Pet {

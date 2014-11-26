@@ -126,12 +126,10 @@ public class GeneralServiceImplTest {
 		when(generalMapper.getSpecies()).thenReturn(species);
 		when(generalMapper.getServices()).thenReturn(services);
 
-		List<Pet> pets = generalService.initializePetArray();
+		Pet pet = generalService.getPetInformation();
 
-		assertEquals(1, pets.size());
-		assertEquals(2, pets.get(0).getGenders().size());
-		assertEquals(2, pets.get(0).getServices().size());
-		assertEquals(2, pets.get(0).getSpecies().size());
+		assertEquals(2, pet.getGenders().size());
+		assertEquals(2, pet.getServices().size());
 
 		verify(generalMapper).getGenders();
 		verify(generalMapper).getServices();

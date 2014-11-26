@@ -2,7 +2,8 @@ package com.vet.maestria.domain.general;
 
 /**
  * This class will be use to 
- * represent the domain tables.
+ * represent the domain tables
+ * which only have an id and text.
  *
  */
 public class LabelValue {

@@ -11,7 +11,7 @@ public interface ICustomerService {
 
 	/**
 	 * Method used to insert or update
-	 * customer information in the db. 
+	 * a new customer in the db. 
 	 * @param customer
 	 */
 	void saveCustomer(Customer customer);

@@ -1,8 +1,5 @@
 package com.vet.maestria.service.general;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,21 +20,12 @@ public class GeneralServiceImpl implements IGeneralService {
 	 * use to complete the basic information of each pet.
 	 */
 	@Transactional
-	private Pet getPetInformation() {
+	public Pet getPetInformation() {
 		Pet pet = new Pet();
 		pet.setGenders(generalMapper.getGenders());
 		pet.setSpecies(generalMapper.getSpecies());
 		pet.setServices(generalMapper.getServices());
 		return pet;
-	}
-
-	/**
-	 * @see IGeneralService
-	 */
-	public List<Pet> initializePetArray() {
-		List<Pet> pets = new ArrayList<Pet>();
-		pets.add(getPetInformation());
-		return pets;
 	}
 
 	public void setGeneralMapper(GeneralMapper generalMapper) {

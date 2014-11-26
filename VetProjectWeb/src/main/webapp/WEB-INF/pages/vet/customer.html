@@ -5,24 +5,24 @@
 	<form ng-submit="saveCustomer()" name="customer">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-2">
-					<span>* Nombre(s): </span>
+				<div class="col-md-1">
+					<span>Nombre(s): </span>
 				</div>
 				<div class="col-md-4">
 					<input type="text" class="form-control" ng-model="customer.name"
 						name="name" required="required" maxlength="30" ng-pattern="/[a-zA-Z]$/" />
-					<span class="text-error" ng-show="customer.name.$error.pattern">Solo letras</span>
+					<span  ng-show="customer.names.$error.pattern">Solo letras</span>
 				</div>
 			</div>
 			<br>
 			<div class="row">
-				<div class="col-md-2">
-					<span>* Apellidos: </span>
+				<div class="col-md-1">
+					<span>Apellidos: </span>
 				</div>
 				<div class="col-md-4">
 					<input type="text" class="form-control" required="required"
-						name="lastname"	ng-model="customer.lastName" maxlength="40" ng-pattern="/^[a-zA-Z]$/" />
-					<span class="text-error" ng-show="customer.lastname.$error.pattern">Solo letras</span>
+						name="lastname"	ng-model="customer.lastName" maxlength="40" ng-pattern="/[a-zA-Z]$/" />
+					<span  ng-show="customer.lastname.$error.pattern">Solo letras</span>
 				</div>
 			</div>
 			<br>
@@ -31,18 +31,18 @@
 					<span>Tel: </span>
 				</div>
 				<div class="col-md-2">
-					<input type="text" class="form-control" ng-model="customer.phone" name="phone"
-						ng-minLength="8" maxlength="15" ng-pattern="/^[0-9]{1,7}$/" />
-					<span class="text-error" ng-show="customer.phone.$error.pattern">Solo numeros</span>
+					<input type="number" required="required" class="form-control"  name="phone" ng-model="customer.phone"
+						ng-minLength="8" maxlength="15" ng-pattern="/^[0-9]{1,11}$/" />
+					<span  ng-show="customer.phone.$error.pattern">Solo numeros</span>
 				</div>
 
 				<div class="col-md-1">
 					<span>Cel: </span>
 				</div>
 				<div class="col-md-2">
-					<input type="text" class="form-control" ng-model="customer.cel" name="cel"
-						ng-minLength="8" maxlength="15" ng-pattern="/^[0-9]{1,7}$/" />
-					<span class="text-error" ng-show="customer.cel.$error.pattern">Solo numeros</span>
+					<input type="number" required="required" class="form-control" name="cel" ng-model="customer.cel"
+						ng-minLength="8" maxlength="15" ng-pattern="/^[0-9]{1,11}$/" />
+					<span ng-show="customer.cel.$error.pattern">Solo numeros</span>
 				</div>
 			</div>
 			<br>
@@ -51,7 +51,7 @@
 					<span>Email: </span>
 				</div>
 				<div class="col-md-4">
-					<input type="email" class="form-control" ng-model="customer.email"
+					<input type="email" required="required" class="form-control" ng-model="customer.email"
 						maxlength="50" />
 				</div>
 			</div>
@@ -61,7 +61,7 @@
 					<span>Direccion: </span>
 				</div>
 				<div class="col-md-6">
-					<input type="text" class="form-control" ng-model="customer.address"
+					<input type="text" required="required" class="form-control" ng-model="customer.address"
 						maxlength="50" />
 				</div>
 			</div>
@@ -71,9 +71,9 @@
 					<span>Colonia: </span>
 				</div>
 				<div class="col-md-6">
-					<input type="text" class="form-control" ng-model="customer.colony" name="colony"
-						maxlength="50"  ng-pattern="/^[a-zA-Z]$/" />
-					<span class="text-error" ng-show="customer.colony.$error.pattern">Solo letras</span>
+					<input type="text" class="form-control" required="required"
+						 name="colony" ng-model="customer.colony" maxlength="50"  ng-pattern="/[a-zA-Z]$/" />
+					<span ng-show="customer.colony.$error.pattern">Solo letras</span>
 				</div>
 			</div>
 			<br>
